@@ -8,11 +8,11 @@ namespace lmsapi
         private static string[] getAngularVirtualPaths(string ModulePath) 
         {
             return new string[] {
-                "~/clinetlibs/" + ModulePath + "/directives/" + "*.js",
-                "~/clinetlibs/" + ModulePath + "/controllers/" + "*.js",
-                "~/clinetlibs/" + ModulePath + "/services/" + "*.js",
-                "~/clinetlibs/" + ModulePath + "/filters/" + "*.js",
-                "~/clinetlibs/" + ModulePath + "/providers/" + "*.js"};
+                "~/clientlibs/" + ModulePath + "/directives/" + "*.js",
+                "~/clientlibs/" + ModulePath + "/controllers/" + "*.js",
+                "~/clientlibs/" + ModulePath + "/services/" + "*.js",
+                "~/clientlibs/" + ModulePath + "/filters/" + "*.js",
+                "~/clientlibs/" + ModulePath + "/providers/" + "*.js"};
         }
 
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
