@@ -5,6 +5,16 @@ namespace lmsapi
 {
     public class BundleConfig
     {
+        private static string[] getAngularVirtualPaths(string ModulePath) 
+        {
+            return new string[] {
+                "~/clinetlibs/" + ModulePath + "/directives/" + "*.js",
+                "~/clinetlibs/" + ModulePath + "/controllers/" + "*.js",
+                "~/clinetlibs/" + ModulePath + "/services/" + "*.js",
+                "~/clinetlibs/" + ModulePath + "/filters/" + "*.js",
+                "~/clinetlibs/" + ModulePath + "/providers/" + "*.js"};
+        }
+
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -18,10 +28,23 @@ namespace lmsapi
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                       "~/Scripts/botstrap/bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                       "~/Scripts/angular/angular.js",
+                       "~/Scripts/angular/angular-ui-router.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
+
+            /*
+             * Application Code Specific JS Files
+            */
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(getAngularVirtualPaths("common")));
+
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
@@ -38,6 +61,13 @@ namespace lmsapi
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            // Application Specefic Bundle for Less Files
+            var lessbundle = new Bundle("~/Content/appCss").IncludeDirectory("~/Content/Less", "*.less");
+            lessbundle.Transforms.Add(new LessTransform());
+            lessbundle.Transforms.Add(new CssMinify());
+            bundles.Add(lessbundle);
+            
         }
     }
 }
