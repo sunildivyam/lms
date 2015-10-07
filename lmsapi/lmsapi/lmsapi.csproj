@@ -176,6 +176,11 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="clientlibs\common\common.js" />
+    <Content Include="clientlibs\common\controllers\lmsController.js" />
+    <Content Include="clientlibs\common\directives\lmsInit.js" />
+    <Content Include="clientlibs\common\filters\filter1.js" />
+    <Content Include="clientlibs\common\providers\provider1.js" />
+    <Content Include="clientlibs\common\services\service1.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1094,11 +1099,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="clientlibs\common\controllers\" />
-    <Folder Include="clientlibs\common\directives\" />
-    <Folder Include="clientlibs\common\filters\" />
-    <Folder Include="clientlibs\common\providers\" />
-    <Folder Include="clientlibs\common\services\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
